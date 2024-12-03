@@ -14,7 +14,7 @@ namespace ExpenseManagerApi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Связь "один ко многим" между User и Expense
+            // Connection between User and Expense
             modelBuilder.Entity<Expense>()
                 .HasOne(e => e.User)
                 .WithMany(u => u.Expenses)

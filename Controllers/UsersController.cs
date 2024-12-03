@@ -18,7 +18,7 @@ namespace ExpenseManagerApi.Controllers
             _context = context;
         }
 
-        // Получить всех пользователей
+        // Get all users
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
@@ -26,7 +26,7 @@ namespace ExpenseManagerApi.Controllers
             return Ok(users);
         }
 
-        // Получить пользователя по ID
+        // Get user by ID
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserById(int id)
         {
@@ -35,7 +35,7 @@ namespace ExpenseManagerApi.Controllers
             return Ok(user);
         }
 
-        // Создать нового пользователя
+        // Create new user
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] User user)
         {
@@ -46,7 +46,7 @@ namespace ExpenseManagerApi.Controllers
             return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
         }
 
-        // Обновить данные пользователя
+        // Update user info
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
         {
@@ -58,7 +58,7 @@ namespace ExpenseManagerApi.Controllers
             return NoContent();
         }
 
-        // Удалить пользователя
+        // Delete user
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {

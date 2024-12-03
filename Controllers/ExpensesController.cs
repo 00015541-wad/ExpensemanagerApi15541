@@ -18,7 +18,7 @@ namespace ExpenseManagerAPI.Controllers
             _context = context;
         }
 
-        // Получить все расходы
+        // Get all expenses
         [HttpGet]
         public async Task<IActionResult> GetAllExpenses()
         {
@@ -26,7 +26,7 @@ namespace ExpenseManagerAPI.Controllers
             return Ok(expenses);
         }
 
-        // Получить расход по ID
+        // Get expense by ID
         [HttpGet("{id}")]
         public async Task<IActionResult> GetExpenseById(int id)
         {
@@ -35,7 +35,7 @@ namespace ExpenseManagerAPI.Controllers
             return Ok(expense);
         }
 
-        // Создать новый расход
+        // СCreate new expense
         [HttpPost]
         public async Task<IActionResult> CreateExpense([FromBody] Expense expense)
         {
@@ -46,7 +46,7 @@ namespace ExpenseManagerAPI.Controllers
             return CreatedAtAction(nameof(GetExpenseById), new { id = expense.Id }, expense);
         }
 
-        // Обновить существующий расход
+        // Update expense
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateExpense(int id, [FromBody] Expense expense)
         {
@@ -58,7 +58,7 @@ namespace ExpenseManagerAPI.Controllers
             return NoContent();
         }
 
-        // Удалить расход
+        // Delete expense
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteExpense(int id)
         {
